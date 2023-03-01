@@ -9,6 +9,7 @@ void Menu::DisplayMenu(const string &title)
 	cout << "1) BizzBuzz" << endl;
 	cout << "2) BizzBuzz Plus" << endl;
 	cout << "3) Reverse Text" << endl;
+	cout << "4) Spheres Intersecting" << endl;
 	cout << "0) Exit" << endl << endl;
 
 	cout << "Select an option: "; 
@@ -28,7 +29,8 @@ void Menu::LoadExercise(const int &option)
 		case 0: cout << "Bye!" << endl << endl; exit(0); break;
 		case 1: challenges.BizzBuzz(); break;
 		case 2: challenges.BizzBuzzPlus(); break;
-		case 3: cout << "Loading Reverse" << endl; break;
+		case 3: challenges.ReverseWord(); break;
+		case 4: challenges.SpheresIntersection(); break;
 		default: 
 			system("CLS"); 
 			cout << endl << endl; 

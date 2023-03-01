@@ -129,11 +129,15 @@
   <ItemGroup>
     <ClCompile Include="C++ Challenges.cpp" />
     <ClCompile Include="Challenges.cpp" />
+    <ClCompile Include="Helpers.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Sphere.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Challenges.h" />
+    <ClInclude Include="Helpers.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Sphere.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

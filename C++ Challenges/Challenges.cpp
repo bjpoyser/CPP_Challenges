@@ -87,3 +87,65 @@ bool Challenges::CheckBizzBuzzPlusNumber(const int& bbNumber, const int& n)
 }
 #pragma endregion
 
+#pragma region ReverseText
+void Challenges::ReverseWord() {
+	cout << "************ Reverse Word ************" << endl << endl;
+	
+	//Get Text
+	string text;
+	cout << "Insert a text: ";
+	cin >> text;
+
+	//Reverse Text
+	const size_t stringLength = strlen(text.c_str());
+	for (size_t i = 0; i < stringLength / 2; i++)
+	{
+		 size_t j = stringLength - i - 1;
+		 if (j >= 0) swap(text[i], text[j]);
+	}
+	
+
+	cout << "Text Reversed: " << text << endl << endl;
+	system("PAUSE");
+	system("CLS");
+}
+#pragma endregion
+
+#pragma region SpheresIntersecting
+void Challenges::SpheresIntersection() {
+	cout << "************ Spheres Intersection ************" << endl << endl;
+
+	//Get Spheres Information
+	cout << "____ First Sphere ____" << endl << endl;
+	Sphere firstSphere = CreateSphere();
+	cout << "____ Second Sphere ____" << endl << endl;
+	Sphere secondSphere = CreateSphere();
+
+	//Get SUM of both radius
+	double radSum = pow(firstSphere.radius + secondSphere.radius, 2);
+	//Get Distance (not using square root to make it memory friendly)
+	double distance = pow(secondSphere.center[0] - firstSphere.center[0], 2) + pow(secondSphere.center[1] - firstSphere.center[1], 2);
+
+	//Check if they are intersecting
+	if (distance < radSum) cout << "Spheres are intersecting" << endl << endl;
+	else cout << "Spheres are not intersecting" << endl << endl;
+
+	system("PAUSE");
+	system("CLS");
+}
+
+Sphere Challenges::CreateSphere() {
+	string centerString;
+	double radius;
+
+	cout << "Introduce the coordinates (2D), separating the x and y values with a comma (e.g: x,y): ";
+	cin >> centerString;
+	cout << "Introduce the radius: ";
+	cin >> radius;
+
+	vector<string> stringVector = Helpers::SplitText(centerString, ',');
+	double center[] = { stof(stringVector[0]), stof(stringVector[1]) };
+
+	return Sphere(center, radius);
+}
+#pragma endregion
