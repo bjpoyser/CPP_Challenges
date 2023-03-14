@@ -104,7 +104,6 @@ void Challenges::ReverseWord() {
 		 if (j >= 0) swap(text[i], text[j]);
 	}
 	
-
 	cout << "Text Reversed: " << text << endl << endl;
 	system("PAUSE");
 	system("CLS");
@@ -149,3 +148,79 @@ Sphere Challenges::CreateSphere() {
 	return Sphere(center, radius);
 }
 #pragma endregion
+
+#pragma region PointersMemoryManagement
+void Challenges::PointersManagement() 
+{
+	int a, b;
+	int* pa = &a, * pb = &b;
+
+	cout << "Enter a value for A: ";
+	scanf_s("%d", &a);
+	cout << "Enter a value for B: ";
+	scanf_s("%d", &b);
+	cout << endl;
+	UpdatePointers(pa, pb);
+	printf("New A: %d\nNew B: %d\n\n", a, b);
+	system("PAUSE");
+	system("CLS");
+}
+
+void Challenges::UpdatePointers(int* a, int* b)
+{
+	int temp = *a;
+	*a = *a + *b;
+	*b = abs(temp - *b);
+}
+#pragma endregion
+
+#pragma region DynamicArrays
+void Challenges::DynamicArrays() {
+	int n, q;
+	cin >> n;
+	cin >> q;
+
+	vector<vector<int>> arrays;
+
+	for (int i = 0; i < n; i++) {
+		int k;
+		cin >> k;
+		vector<int> a;
+
+		for (int j = 0; j < k; j++) {
+			int temp;
+			cin >> temp;
+			a.push_back(temp);
+		}
+
+		arrays.push_back(a);
+	}
+
+	vector<vector<int>> queries;
+
+	for (int l = 0; l < q; l++) {
+		int x, z;
+		cin >> x;
+		cin >> z;
+
+		vector<int> query;
+		query.push_back(x);
+		query.push_back(z);
+
+		queries.push_back(query);
+	}
+
+	cout << "Result" << endl << endl;
+	for (size_t i = 0; i < queries.size(); i++)
+	{
+		vector<int> query = queries[i];
+		vector<int> array = arrays[query[0]];
+		cout << array[query[1]] << endl;
+	}
+
+	cout << endl << endl;
+	system("PAUSE");
+	system("CLS");
+}
+#pragma endregion
+

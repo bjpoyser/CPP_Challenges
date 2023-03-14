@@ -1,2 +1,1 @@
-﻿  Challenges.cpp
-  C++ Challenges.vcxproj -> D:\Repos\C++ Learning\Challenges\C_Challenges\C++ Challenges\x64\Debug\C++ Challenges.exe
+﻿LINK : fatal error LNK1168: cannot open D:\Repos\C++ Learning\Challenges\C_Challenges\C++ Challenges\x64\Debug\C++ Challenges.exe for writing

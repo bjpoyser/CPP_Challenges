@@ -4,6 +4,8 @@
 #include <Vector>
 #include "Sphere.h"
 #include "Helpers.h"
+#include <stdio.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -39,9 +41,23 @@ public:
 	/// 2) Check if they are intersecting
 	/// </summary>
 	void SpheresIntersection();
+	/// <summary>
+	/// 1) The function is declared with a void return type, so there is no value to return. 
+	/// 2) Modify the values in memory so that a contains their sum and b contains their absoluted difference.
+	/// </summary>
+	void PointersManagement();
+	/// <summary>
+	/// 1) Consider an N -element array, A, where each index I in the array contains a reference to an array of K(I) integers (where the value of K(I) varies from array to array). 
+	/// 2) Given A, you must answer Q queries.
+	/// 3) Each query is in the format i j, where I denotes an index in array A and J denotes an index in the array located at A[I].
+	/// 4) For each query, find and print the value of element J in the array at location A[I] on a new line.
+	/// </summary>
+	void DynamicArrays();
 private:
 	bool CheckBizzBuzzPlusNumber(const int &bbNumber, const int &n);
 
 	Sphere CreateSphere();
+
+	void UpdatePointers(int* a, int* b);
 };
 
