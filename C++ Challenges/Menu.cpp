@@ -12,7 +12,9 @@ void Menu::DisplayMenu(const string &title)
 	cout << "4) Spheres Intersecting" << endl;
 	cout << "5) Pointers|Memory Management" << endl;
 	cout << "6) Dynamic Arrays" << endl;
-	cout << "7) Array of Numbers" << endl;
+	cout << "7) Sum from Pairs" << endl;
+	cout << "8) Word Counter" << endl;
+	cout << "9) Class Override | BoxIt!" << endl;
 	cout << "0) Exit" << endl << endl;
 
 	cout << "Select an option: "; 
@@ -36,7 +38,9 @@ void Menu::LoadExercise(const int &option)
 		case 4: challenges.SpheresIntersection(); break;
 		case 5: challenges.PointersManagement(); break;
 		case 6: challenges.DynamicArrays(); break;
-		case 7: challenges.ArrayOfNumbers(); break;
+		case 7: challenges.SumFromPairs(); break;
+		case 8: challenges.WordCounter(); break;
+		case 9: challenges.BoxIt(); break;
 		default: 
 			system("CLS"); 
 			cout << endl << endl; 

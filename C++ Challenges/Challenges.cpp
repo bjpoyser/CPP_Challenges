@@ -1,4 +1,6 @@
 #include "Challenges.h"
+#include "Box.h"
+
 
 #pragma region BizzBuzz
 void Challenges::BizzBuzz()
@@ -142,7 +144,7 @@ Sphere Challenges::CreateSphere() {
 	cout << "Introduce the radius: ";
 	cin >> radius;
 
-	vector<string> stringVector = Helpers::SplitText(centerString, ',');
+	vector<string> stringVector = Helpers::SplitText(centerString, ',', false);
 	double center[] = { stof(stringVector[0]), stof(stringVector[1]) };
 
 	return Sphere(center, radius);
@@ -224,3 +226,169 @@ void Challenges::DynamicArrays() {
 }
 #pragma endregion
 
+#pragma region SumFromPairs
+void Challenges::SumFromPairs() 
+{
+	string values;
+	int sum;
+
+	cout << "Enter the array values: ";
+	cin >> values;
+	cout << "\n";
+
+	cout << "Enter the sum you are looking for: ";
+	cin >> sum;
+	cout << "\n";
+
+	size_t arrayLength = strlen(values.c_str());
+	int *testArray = new int[arrayLength];
+
+	int arrayIndex = 0;
+	for (int i = 0; i < arrayLength; i++) {
+		testArray[arrayIndex] = int(values[i] - '0');
+		arrayIndex++;
+	}
+
+	printf("Can %d be gotten from array %s?: %s", sum, values, CheckArray(&testArray, sum) ? "True" : "False");
+
+	cout << endl << endl;
+	system("PAUSE");
+	system("CLS");
+}
+
+bool Challenges::CheckArray(int *testArray[], int &sum) 
+{
+	int* tempArray = *testArray;
+	unordered_set<int> complements;
+	for (size_t i = 0; i < sizeof(tempArray); i++)
+	{
+		if (complements.find(tempArray[i]) != complements.end())
+			return true;
+
+		complements.insert(tempArray[i] - sum);
+	}
+
+	return false;
+}
+#pragma endregion
+
+#pragma region WordCounter
+void Challenges::WordCounter() 
+{
+	cin.ignore();
+	string text;
+	cout << "Introduce the text: ";
+	getline(cin, text);
+
+	cout << endl;
+
+	unordered_map<string, int> dictionary;
+	vector<string> splitText = Helpers::SplitText(text, ' ', true);
+	for (string word : splitText)
+	{
+		if (word == "") continue;
+
+		if (dictionary.find(word) != dictionary.end()) {
+			dictionary.at(word)++;
+		}
+		else 
+		{
+			pair tempPair = { word, 1 };
+			dictionary.insert(tempPair);
+		}
+	}
+
+	for(pair<string, int> word:dictionary) cout << word.first << ":" << word.second << endl;
+
+	cout << endl << endl;
+	system("PAUSE");
+	system("CLS");
+}
+#pragma endregion
+
+#pragma region BoxIt/ClassOverride
+void Challenges::BoxIt() {
+	Box temp;
+	int type, l, b, h;
+
+	do {
+		cout << "___________________________ Box It! ___________________________" << endl << endl <<
+			"Current Box Values: " << temp << endl << endl <<
+			"1) Print a box generated without the dimensions" << endl <<
+			"2) Create a box inputing the dimensions" << endl << 
+			"3) Compare 2 Boxes" << endl <<
+			"4) Calculate volume of a box generated with teh " << endl <<
+			"5) Create a duplicate of a box" << endl <<
+			"0) Go Back" << endl <<
+			"_______________________________________________________________" << endl << endl <<
+			"Select and option: ";
+
+		cin >> type;
+		cout << endl << endl;
+
+		if (type == 0)
+			break;
+		else if (type == 1) {
+			cout << temp << endl << endl;
+			system("PAUSE");
+			system("CLS");
+		}
+		else if (type == 2) {
+			cout << "Length:";
+			cin >> l;
+
+			cout << "Breath:";
+			cin >> b;
+
+			cout << "Height:";
+			cin >> h;
+
+			Box NewBoxT2(l, b, h);
+			temp = NewBoxT2;
+			cout << temp << endl << endl;
+			system("PAUSE");
+			system("CLS");
+		}
+		else if (type == 3) {
+			cout << "Length:";
+			cin >> l;
+
+			cout << "Breath:";
+			cin >> b;
+
+			cout << "Height:";
+			cin >> h;
+
+			Box NewBoxT3(l, b, h);
+			if (NewBoxT3 < temp)
+			{
+				cout << "Lesser\n";
+			}
+			else
+			{
+				cout << "Greater\n";
+			};
+			system("PAUSE");
+			system("CLS");
+		}
+		else if (type == 4) {
+			cout << temp.CalculateVolume() << endl << endl;
+			system("PAUSE");
+			system("CLS");
+		}
+		else if (type == 5) {
+			Box NewBoxT5(temp);
+			cout << NewBoxT5 << endl << endl;
+			system("PAUSE");
+			system("CLS");
+		}
+		else {
+			system("CLS");
+			cout << "The option selected doesn't exits, try again." << endl << endl;
+		}
+	} 
+	while (type != 0);
+
+	system("CLS");
+}
+#pragma endregion

@@ -4,8 +4,12 @@
 #include <Vector>
 #include "Sphere.h"
 #include "Helpers.h"
-#include <stdio.h>
-#include <cstdlib>
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <algorithm>
+#include <unordered_set>
+#include <unordered_map>
 
 using namespace std;
 
@@ -53,11 +57,40 @@ public:
 	/// 4) For each query, find and print the value of element J in the array at location A[I] on a new line.
 	/// </summary>
 	void DynamicArrays();
+	/// <summary>
+	/// Given an array of numbers and a "SUM" number, check if the addition of a pair in the array gives SUM as result
+	/// </summary>
+	void SumFromPairs();
+	/// <summary>
+	/// Given a text, print the number of repetitions a word has
+	/// </summary>
+	void WordCounter();
+	/// <summary>
+	/// 1) Design a class named Box whose dimensions are integers and private to the class. The dimensions are labelled: length, breadth, and height.
+	/// 2) The default constructor of the class should initialize length, breadth, and height and to 0.
+	/// 3) The parameterized constructor Box(int length, int breadth, int height) should initialize Box's l, b and h to length, breadth and height.
+	/// 4) The copy constructor Box(Box B) should set l, b and h to B's l, b and h, respectively.
+	/// 5) Apart from the above, the class should have 4 functions :
+	///		int getLength() - Return box's length
+	///		int getBreadth() - Return box's breadth
+	///		int getHeight() - Return box's height
+	///		long long CalculateVolume() - Return the volume of the box
+	///		Overload the operator < for the class Box. Box A < Box B if :
+	///			A.length < B.lenght
+	///			A.breadth < B.breadth and A.length == B.length
+	///			A.heigth < B.height and A.breadth == B.breadth and A.length == B.length
+	///		Overload operator << for the class Box().
+	///		If B is an object of class Box :
+	///			cout << B should print B.length, B.breadth, and B.height on a single line separated by spaces.
+	/// </summary>
+	void BoxIt();
 private:
 	bool CheckBizzBuzzPlusNumber(const int &bbNumber, const int &n);
 
 	Sphere CreateSphere();
 
 	void UpdatePointers(int* a, int* b);
+
+	bool CheckArray(int* testArray[], int &sum);
 };
 
