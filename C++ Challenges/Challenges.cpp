@@ -1,5 +1,5 @@
 #include "Challenges.h"
-#include "Box.h"
+
 
 
 #pragma region BizzBuzz
@@ -390,5 +390,43 @@ void Challenges::BoxIt() {
 	while (type != 0);
 
 	system("CLS");
+}
+#pragma endregion
+
+#pragma region ExceptionManagement
+void Challenges::ExceptionManagement() {
+	string username;
+	cout << "Input a username (min 5 characters): ";
+	cin >> username;
+	try {
+		bool isValid = CheckUsername(username);
+		if (isValid) {
+			cout << "Valid" << '\n';
+		}
+		else {
+			cout << "Invalid" << '\n';
+		}
+	}
+	catch (BadLengthException e) {
+		cout << "Too short: " << e.what() << '\n';
+	}
+
+	cout << endl << endl;
+	system("PAUSE");
+	system("CLS");
+}
+
+bool Challenges::CheckUsername(string username) {
+	bool isValid = true;
+	int n = username.length();
+	if (n < 5) {
+		throw BadLengthException(n);
+	}
+	for (int i = 0; i < n - 1; i++) {
+		if (username[i] == 'w' && username[i + 1] == 'w') {
+			isValid = false;
+		}
+	}
+	return isValid;
 }
 #pragma endregion

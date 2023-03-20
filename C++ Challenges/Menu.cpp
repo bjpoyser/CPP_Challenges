@@ -15,6 +15,7 @@ void Menu::DisplayMenu(const string &title)
 	cout << "7) Sum from Pairs" << endl;
 	cout << "8) Word Counter" << endl;
 	cout << "9) Class Override | BoxIt!" << endl;
+	cout << "10) Custom Exceptions" << endl;
 	cout << "0) Exit" << endl << endl;
 
 	cout << "Select an option: "; 
@@ -41,6 +42,7 @@ void Menu::LoadExercise(const int &option)
 		case 7: challenges.SumFromPairs(); break;
 		case 8: challenges.WordCounter(); break;
 		case 9: challenges.BoxIt(); break;
+		case 10: challenges.ExceptionManagement(); break;
 		default: 
 			system("CLS"); 
 			cout << endl << endl; 

@@ -10,6 +10,8 @@
 #include <algorithm>
 #include <unordered_set>
 #include <unordered_map>
+#include "Box.h"
+#include "BadLengthException.h"
 
 using namespace std;
 
@@ -84,6 +86,13 @@ public:
 	///			cout << B should print B.length, B.breadth, and B.height on a single line separated by spaces.
 	/// </summary>
 	void BoxIt();
+	/// <summary>
+	/// 1) Create a custom exception that receives the length of a username.
+	/// 2) If the username has less than 5 digits throw the exception
+	/// 3) When an exception is thrown, it prints "Too short: n" (where n is the length of the given username).
+	/// </summary>
+	void ExceptionManagement();
+
 private:
 	bool CheckBizzBuzzPlusNumber(const int &bbNumber, const int &n);
 
@@ -92,5 +101,7 @@ private:
 	void UpdatePointers(int* a, int* b);
 
 	bool CheckArray(int* testArray[], int &sum);
+
+	bool CheckUsername(string username);
 };
 
